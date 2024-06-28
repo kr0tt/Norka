@@ -1,5 +1,5 @@
 # Norka
-Copying shellcode to existing RWX memory regions to avoid IoCs based on memory allocations and protections is a well-known technique, first mentioned (to my knowledge) by [namazso](https://twitter.com/namazso) [here](https://www.unknowncheats.me/forum/anti-cheat-bypass/286274-internal-detection-vectors-bypass.html) and later made more known with [Process Mockingjay](https://www.securityjoes.com/post/process-mockingjay-echoing-rwx-in-userland-to-achieve-code-execution).
+Copying shellcode to existing RWX memory regions to avoid IOCs based on memory allocations and protections is a well-known technique, first mentioned (to my knowledge) by [namazso](https://twitter.com/namazso) [here](https://www.unknowncheats.me/forum/anti-cheat-bypass/286274-internal-detection-vectors-bypass.html) and later made more known with [Process Mockingjay](https://www.securityjoes.com/post/process-mockingjay-echoing-rwx-in-userland-to-achieve-code-execution).
 
 Norka slightly adds to this by searching code caves within RWX memory regions that are large enough to house our shellcode to avoid crashing the target process or loading a DLL with RWX memory regions that might not be present on a host. Additionally, execution of the shellcode is achieved by inserting a trampoline to the thread pool worker factory start routine that will jump to our shellcode and execute it.
 
